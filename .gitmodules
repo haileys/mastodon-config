@@ -1,0 +1,3 @@
+[submodule "app/current"]
+	path = app/current
+	url = https://github.com/mastodon/mastodon

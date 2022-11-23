@@ -1,0 +1,3 @@
+[Unit]
+Description=Mastodon sidekiq procs
+Requires=mastodon-sidekiq@0.service mastodon-sidekiq@1.service mastodon-sidekiq@2.service mastodon-sidekiq@3.service

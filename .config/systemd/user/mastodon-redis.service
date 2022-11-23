@@ -1,0 +1,6 @@
+[Unit]
+Description=mastodon redis instance
+
+[Service]
+Type=simple
+ExecStart=/home/mastodon/run-redis.sh

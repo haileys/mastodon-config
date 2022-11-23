@@ -1,0 +1,17 @@
+[Unit]
+Description=mastodon-puma
+After=mastodon-databases.target
+Requires=mastodon-databases.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/mastodon/app/current
+Environment="RAILS_ENV=production"
+Environment="WEB_CONCURRENCY=4"
+Environment="PORT=3000"
+Environment="LD_PRELOAD=libjemalloc.so"
+SyslogIdentifier=puma
+ExecStart=/usr/local/bin/chruby-exec ruby-3.0.3 -- bundle exec puma -C config/puma.rb
+ExecReload=/bin/kill -SIGUSR1 $MAINPID
+TimeoutSec=15
+Restart=always

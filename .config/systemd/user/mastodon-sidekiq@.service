@@ -1,0 +1,16 @@
+[Unit]
+Description=mastodon-sidekiq-%i
+After=mastodon-databases.target
+Requires=mastodon-databases.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/mastodon/app/current
+Environment="RAILS_ENV=production"
+Environment="DB_POOL=6"
+Environment="MALLOC_ARENA_MAX=2"
+Environment="LD_PRELOAD=libjemalloc.so"
+SyslogIdentifier=sidekiq-%i
+ExecStart=/usr/local/bin/chruby-exec ruby-3.0.3 -- bundle exec sidekiq -c 6
+TimeoutSec=15
+Restart=always

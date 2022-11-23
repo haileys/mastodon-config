@@ -1,0 +1,6 @@
+[Unit]
+Description=Mastodon
+Requires=mastodon-puma.service mastodon-sidekiq.target mastodon-streaming.service
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,15 @@
+[Unit]
+Description=mastodon-streaming
+After=mastodon-databases.target
+Requires=mastodon-databases.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/mastodon/app/current
+Environment="NODE_ENV=production"
+Environment="PORT=4000"
+Environment="STREAMING_CLUSTER_NUM=1"
+SyslogIdentifier=streaming
+ExecStart=/usr/bin/node ./streaming
+TimeoutSec=15
+Restart=always

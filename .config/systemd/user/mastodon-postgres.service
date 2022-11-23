@@ -1,0 +1,6 @@
+[Unit]
+Description=mastodon postgres instance
+
+[Service]
+Type=simple
+ExecStart=/home/mastodon/run-postgres.sh
